@@ -93,4 +93,4 @@ Hello there 👋, my name is Hoh Shen Yien. I'm an undergraduate student who is 
 
 ## More about me
 - My story
-- How I started programming
+- [My Programming Journey](../2021-07-04-my-programming-journey/)
