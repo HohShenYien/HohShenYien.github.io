@@ -92,5 +92,5 @@ Hello there 👋, my name is Hoh Shen Yien. I'm an undergraduate student who is 
 - I am also rather good with data structures and algorithms as I do [Leetcode](https://leetcode.com/) problems every now and then.
 
 ## More about me
-- My story
+- [My story](../2021-07-04-my-story/)
 - [My Programming Journey](../2021-07-04-my-programming-journey/)
