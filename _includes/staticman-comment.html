@@ -105,7 +105,7 @@
         {% if include.index %}<a href="#comment{{ include.index }}" itemprop="url">{% endif %}
         <time datetime="{{ include.date | date_to_xmlschema }}" itemprop="datePublished">{{ include.date | date: "%B %d, %Y at %I:%M %p" }}</time>
         {% if include.index %}</a>{% endif %}
-      {% endif %}
+      {% endif %} 
     </p>
     <div itemprop="text">{{ include.message | markdownify }}</div>
   </div>
@@ -127,6 +127,4 @@
   {% include staticman-reply.html uid=uid email=email name=name url=url date=date message=message comment=include.index index=index%}
   {% endfor %}
 </article>
-{% if has_reply == false %} 
-  <hr>
-{% endif %}
+<hr>

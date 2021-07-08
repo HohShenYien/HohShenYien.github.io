@@ -6,7 +6,8 @@
     <div class="js-comments">
       {% if site.data.comments[page.slug] %}
         {% assign comments = site.data.comments[page.slug] | sort %}
-        {% assign index = 1 %}
+        {% capture index %}{% increment index %}{% endcapture %}
+        {% capture index %}{% increment index %}{% endcapture %}
         {% for comment in comments %}
           {% assign email = comment[1].email %}
           {% assign name = comment[1].name %}

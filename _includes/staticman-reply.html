@@ -6,6 +6,7 @@
 
 <article id="comment-{{include.comment}}-reply-{{ include.index }}" class="js-comment comment" itemprop="comment" itemscope itemtype="https://schema.org/Comment"
   style="margin-left: 2em">
+    <hr>
     <div class="comment__avatar-wrapper">
       <img class="comment__avatar" src="https://www.gravatar.com/avatar/{{ include.email }}?d=mm&s=80" alt="{{ include.name }}">
     </div>
@@ -27,5 +28,4 @@
       </p>
       <div itemprop="text" class="content">{{ include.message | markdownify }}</div>
     </div>
-    <hr>
 </article>
