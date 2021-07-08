@@ -175,7 +175,7 @@ footer-link-col: "#404040"
 staticman:
   repository : HohShenYien/HohShenYien.github.io
   branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-  endpoint   : https://csdiary-staticman.herokuapp.com/v3/entry/github/
+  endpoint   : https://csdiary-staticman.herokuapp.com/v2/entry/github/
   reCaptcha:  
     siteKey  : 6LcVLIEbAAAAAGbMycRlg3Ei5viL5h4uXCaCpQW1
     secret   : b9MfrwGJFv7lmlwE8J9KGqbWFaf8PeiTNIwqu+0xGDLoSteRR4aVv/iPPjMyIuzHdE2heIcCbnvG2B1oulUfcU+uM8ziWO5sLQm1ljjos6miRrvLeZk78/NUhjzUC1sgzynVddbDcqG4C9d6fYmG8zHYdX61k3WwyCGOTCt3GyU=
@@ -199,7 +199,7 @@ date_format: "%-d %B, %Y"
 # for me, this line reads:
 # https://staticman-travisdownsio.herokuapp.com/v2/entry/travisdowns/travisdowns.github.io/master/comments
 # my staticman
-staticman_url: https://csdiary-staticman.herokuapp.com/v3/entry/github/HohShenYien/HohShenYien.github.io/master/comments
+staticman_url: https://csdiary-staticman.herokuapp.com/v2/entry/github/HohShenYien/HohShenYien.github.io/master/comments
 
 # reCaptcha stuffs
 # reCaptcha:
