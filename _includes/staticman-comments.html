@@ -13,9 +13,9 @@
           {% assign date = comment[1].date %}
           {% assign message = comment[1].message %}
           {% assign index = forloop.index %}
-          {% assign uid = reply._id %}
+          {% assign uid = comment[1]._id %}
           {%if comment[1].replying_to_uid == "" %}
-            {% include staticman-comment.html index=forloop.index email=email name=name url=url date=date message=message index=index is_reply=false uid=uid %}
+            {% include staticman-comment.html index=forloop.index email=email name=name url=url date=date message=message index=index uid=uid %}
           {%endif %}
         {% endfor %}
       {% endif %}
@@ -23,7 +23,7 @@
     <!-- End static comments -->
     <!-- Start new comment form -->
     <div class="page__comments-form" id="respond">
-      <h3 class="page__comments-title">{{ site.data.ui-text[site.locale].comments_label | default: "Leave a Comment" }}</h3>
+      <h3 class="page__comments-title">{{ site.data.ui-text[site.locale].comments_label | default: "Leave a Comment" }}<small><a rel="nofollow" id="cancel-comment-reply-link" href="{{ page.url | absolute_url }}#respond" style="display:none;">(cancel reply)</a></small></h3>
       <p class="small">{{ site.data.ui-text[site.locale].comment_form_info | default: "Your email address will not be published. Required fields are marked" }} <span class="required">*</span></p>
       <form id="new_comment" class="page__comments-form js-form form" method="post" action="{{ site.staticman_url }}">
         <div class="form-group">

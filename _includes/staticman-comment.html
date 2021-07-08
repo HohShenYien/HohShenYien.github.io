@@ -110,7 +110,7 @@
     <div itemprop="text">{{ include.message | markdownify }}</div>
   </div>
   <div class="comment__meta" style="margin-top: -15px;">
-    <a rel="nofollow" class="comment__reply-link link" onclick="replying.moveForm('{{ comment_id }}', 'respond', '{{ page.slug }}', '{{ include.uid }}')">↪&#xFE0E; Reply to {{ include.name }}</a>
+    <a rel="nofollow" class="comment__reply-link link-primary" onclick="replying.moveForm('{{ comment_id }}', 'respond', '{{ page.slug }}', '{{ include.uid }}')">↪&#xFE0E; Reply to {{ include.name }}</a>
   </div>
   {% assign has_reply = false %}
   {%- capture this_uid %}{{ include.uid }}{% endcapture %}
