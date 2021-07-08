@@ -199,12 +199,12 @@ date_format: "%-d %B, %Y"
 # for me, this line reads:
 # https://staticman-travisdownsio.herokuapp.com/v2/entry/travisdowns/travisdowns.github.io/master/comments
 # my staticman
-# staticman_url: https://csdiary-staticman.herokuapp.com/v3/entry/github/HohShenYien/HohShenYien.github.io/master/comments
+staticman_url: https://csdiary-staticman.herokuapp.com/v3/entry/github/HohShenYien/HohShenYien.github.io/master/comments
 
 # reCaptcha stuffs
-reCaptcha:
-  siteKey: 6LcVLIEbAAAAAGbMycRlg3Ei5viL5h4uXCaCpQW1
-  secret: b9MfrwGJFv7lmlwE8J9KGqbWFaf8PeiTNIwqu+0xGDLoSteRR4aVv/iPPjMyIuzHdE2heIcCbnvG2B1oulUfcU+uM8ziWO5sLQm1ljjos6miRrvLeZk78/NUhjzUC1sgzynVddbDcqG4C9d6fYmG8zHYdX61k3WwyCGOTCt3GyU=
+# reCaptcha:
+#   siteKey: 6LcVLIEbAAAAAGbMycRlg3Ei5viL5h4uXCaCpQW1
+#   secret: b9MfrwGJFv7lmlwE8J9KGqbWFaf8PeiTNIwqu+0xGDLoSteRR4aVv/iPPjMyIuzHdE2heIcCbnvG2B1oulUfcU+uM8ziWO5sLQm1ljjos6miRrvLeZk78/NUhjzUC1sgzynVddbDcqG4C9d6fYmG8zHYdX61k3WwyCGOTCt3GyU=
 
 # --- You don't need to touch anything below here (but you can if you want) --- #
 
