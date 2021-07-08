@@ -1,5 +1,5 @@
 ---
-layout: null
+layout: blank
 ---
 
 (function ($) {
@@ -14,6 +14,7 @@ layout: null
     var endpoint = '{{ sm.endpoint }}';
     var repository = '{{ sm.repository }}';
     var branch = '{{ sm.branch }}';
+    console.log(endpoint + repository + '/' + branch + '/comments');
 
     $.ajax({
       type: $(this).attr('method'),
