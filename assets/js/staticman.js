@@ -17,7 +17,9 @@ layout: blank
       type: $(this).attr('method'),
       url: endpoint + repository + '/' + branch + '/comments',
       data: $(this).serialize(),
-      crossDomain: true,
+      beforeSend: function(request) {
+        request.setRequestHeader("Access-Control-Allow-Origin", "https://csdiary.me");
+      },
       contentType: 'application/x-www-form-urlencoded',
       success: function (data) {
         $('#comment-form-submit').addClass('d-none');
