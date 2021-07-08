@@ -7,6 +7,7 @@ layout: blank
 
   $('#new_comment').submit(function () {
     var form = this;
+    console.log($(this).serialize());
 
     $(form).addClass('disabled');
 
