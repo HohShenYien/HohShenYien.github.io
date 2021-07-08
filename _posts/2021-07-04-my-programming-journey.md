@@ -13,6 +13,10 @@ There were many interesting math-programming problems in this website that I wan
 try solving. Therefore, I started learning Python from another wonderful app, 
 [sololearn](https://www.sololearn.com/).
 
+At start, I didn't have a personal laptop, so all I had was a phone and pydroid app
+as my python editor in phone. Thus, it's possible for everyone to learn programming
+because even I who only started with a simple phone could learn programming.
+
 ## How did I move on?
 {% include image.html url="../assets/img/posts/my-programming-journey/leetcode.png" description="The first problem I solved in Leetcode" %}
 
