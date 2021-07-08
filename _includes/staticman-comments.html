@@ -13,13 +13,16 @@
           {% assign date = comment[1].date %}
           {% assign message = comment[1].message %}
           {% assign index = forloop.index %}
-          {% include staticman-comment.html index=forloop.index email=email name=name url=url date=date message=message index=index%}
+          {% assign uid = reply._id %}
+          {%if comment[1].replying_to_uid == "" %}
+            {% include staticman-comment.html index=forloop.index email=email name=name url=url date=date message=message index=index is_reply=false uid=uid %}
+          {%endif %}
         {% endfor %}
       {% endif %}
     </div>
     <!-- End static comments -->
     <!-- Start new comment form -->
-    <div class="page__comments-form">
+    <div class="page__comments-form" id="respond">
       <h3 class="page__comments-title">{{ site.data.ui-text[site.locale].comments_label | default: "Leave a Comment" }}</h3>
       <p class="small">{{ site.data.ui-text[site.locale].comment_form_info | default: "Your email address will not be published. Required fields are marked" }} <span class="required">*</span></p>
       <form id="new_comment" class="page__comments-form js-form form" method="post" action="{{ site.staticman_url }}">
@@ -44,13 +47,14 @@
           <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}">
           <input type="hidden" name="options[slug]" value="{{ page.slug }}">
           <label for="comment-form-location">Not used. Leave blank if you are a human.</label>
+          <input type="text" id="comment-form-location" name="fields[hidden]" autocomplete="off"/>
           <input type="hidden" id="comment-replying-to-uid" name="fields[replying_to_uid]" value="">
           {% if site.staticman.reCaptcha.siteKey %}<input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.staticman.reCaptcha.siteKey }}">{% endif %}
           {% if site.staticman.reCaptcha.secret %}<input type="hidden" name="options[reCaptcha][secret]" value="{{ site.staticman.reCaptcha.secret }}">{% endif %}
         </div>
         <!-- Start comment form alert messaging -->
         <p class="d-none js-notice alert">
-          <strong class="js-notice-text-success d-none">{{ site.data.ui-text[site.locale].comment_success_msg | default: "Thanks for your comment! It will show on the site after a few moments!" }}</strong>
+          <strong class="js-notice-text-success d-none">{{ site.data.ui-text[site.locale].comment_success_msg | default: "Thanks for your comment! It will show on the site after a few moments! You will have to refresh to view the changes." }}</strong>
           <strong class="js-notice-text-failure d-none">{{ site.data.ui-text[site.locale].comment_error_msg | default: "Sorry, there was an error with your submission. Please make sure all required fields have been completed and try again." }}</strong>
         </p>
         <!-- End comment form alert messaging -->

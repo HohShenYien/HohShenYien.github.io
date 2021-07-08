@@ -1,4 +1,93 @@
-<article id="comment{{ include.index }}" class="js-comment comment" itemprop="comment" itemscope itemtype="https://schema.org/Comment">
+<script>
+  // for replying
+  var replying = {
+    I: function( id ) {
+    return document.getElementById( id );
+    },
+    moveForm: function(commId, respondId, postId, parentUid) {
+      var div, element, style, cssHidden,
+      t           = this,                    //t is the addComment object, with functions moveForm and I, and variable respondId
+      comm        = t.I( commId ),                                // whole comment
+      respond     = t.I( respondId ),                             // whole new comment form
+      cancel      = t.I( 'cancel-comment-reply-link' ),           // whole reply cancel link
+      parentuidF  = t.I( 'comment-replying-to-uid' ),             // a hidden element in the comment
+      post        = t.I( 'comment-post-slug' ),                   // null
+      commentForm = respond.getElementsByTagName( 'form' )[0];    // the <form> part of the comment_form div
+
+      t.respondId = respondId;
+      postId = postId || false;
+
+      if ( ! t.I( 'sm-temp-form-div' ) ) {
+        div = document.createElement( 'div' );
+        div.id = 'sm-temp-form-div';
+        div.style.display = 'none';
+        respond.parentNode.insertBefore( div, respond ); //create and insert a bookmark div right before comment form
+      }
+
+      comm.parentNode.insertBefore( respond, comm.nextSibling );  //move the form from the bottom to above the next sibling
+      if ( post && postId ) {
+        post.value = postId;
+      }
+      parentuidF.value = parentUid;
+      cancel.style.display = '';                        //make the cancel link visible
+
+      cancel.onclick = function() {
+        var t       = addComment,
+        temp    = t.I( 'sm-temp-form-div' ),            //temp is the original bookmark
+        respond = t.I( t.respondId );                   //respond is the comment form
+
+        if ( ! temp || ! respond ) {
+          return;
+        }
+
+        t.I( 'comment-replying-to-uid' ).value = null;
+        temp.parentNode.insertBefore( respond, temp );  //move the comment form to its original location
+        temp.parentNode.removeChild( temp );            //remove the bookmark div
+        this.style.display = 'none';                    //make the cancel link invisible
+        this.onclick = null;                            //retire the onclick handler
+        return false;
+      };
+      try {
+      for ( var i = 0; i < commentForm.elements.length; i++ ) {
+        element = commentForm.elements[i];
+        cssHidden = false;
+
+        // Modern browsers.
+        if ( 'getComputedStyle' in window ) {
+          style = window.getComputedStyle( element );
+        // IE 8.
+        } else if ( document.documentElement.currentStyle ) {
+        style = element.currentStyle;
+        }
+
+      /*
+       * For display none, do the same thing jQuery does. For visibility,
+       * check the element computed style since browsers are already doing
+       * the job for us. In fact, the visibility computed style is the actual
+       * computed value and already takes into account the element ancestors.
+       */
+        if ( ( element.offsetWidth <= 0 && element.offsetHeight <= 0 ) || style.visibility === 'hidden' ) {
+          cssHidden = true;
+        }
+
+        // Skip form elements that are hidden or disabled.
+        if ( 'hidden' === element.type || element.disabled || cssHidden ) {
+          continue;
+        }
+
+        element.focus();
+        // Stop after the first focusable element.
+        break;
+      }
+
+    } catch( er ) {}
+
+    return false;
+    }
+  }
+</script>
+{% assign comment_id = include.uid | prepend: 'comment-' %}
+<article id="{{ comment_id }}" class="js-comment comment" itemprop="comment" itemscope itemtype="https://schema.org/Comment">
   <div class="comment__avatar-wrapper">
     <img class="comment__avatar" src="https://www.gravatar.com/avatar/{{ include.email }}?d=mm&s=80" alt="{{ include.name }}">
   </div>
@@ -9,7 +98,7 @@
       {% else %}
         <span itemprop="name">{{ include.name }}</span>
       {% endunless %}
-      <span style="position:absolute; right: 0; font-weight: 300; font-size: 1.5em;" class="figure-caption"># {{include.index}}</span>
+      <span style="position:absolute; right: 5px; font-weight: 300; font-size: 1.5em;" class="figure-caption"># {{include.index}}</span>
     </h4>
     <p class="comment__date">
       {% if include.date %}
@@ -20,4 +109,24 @@
     </p>
     <div itemprop="text">{{ include.message | markdownify }}</div>
   </div>
+  <div class="comment__meta" style="margin-top: -15px;">
+    <a rel="nofollow" class="comment__reply-link link" onclick="replying.moveForm('{{ comment_id }}', 'respond', '{{ page.slug }}', '{{ include.uid }}')">↪&#xFE0E; Reply to {{ include.name }}</a>
+  </div>
+  {% assign has_reply = false %}
+  {%- capture this_uid %}{{ include.uid }}{% endcapture %}
+  {%- assign replies = site.data.comments[page.slug] | where_exp: 'item', 'item.replying_to_uid == this_uid' %}
+  {%- assign replies_date = replies | sort: 'date' %}
+  {% for reply in replies_date %}
+    {%- assign email       = reply.email -%}
+    {%- assign name        = reply.name -%}
+    {%- assign url         = reply.url -%}
+    {%- assign date        = reply.date -%}
+    {%- assign message     = reply.message -%}
+    {% assign index = forloop.index %}
+    {% assign has_reply = true %}
+  {% include staticman-reply.html uid=uid email=email name=name url=url date=date message=message comment=include.index index=index%}
+  {% endfor %}
 </article>
+{% if has_reply == false %} 
+  <hr>
+{% endif %}

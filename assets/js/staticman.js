@@ -5,6 +5,10 @@
     var form = this;
     $(form).addClass('disabled');
     $.ajax({      
+      type: $(this).attr('method'),
+      url:  $(this).attr('action'),
+      data: $(this).serialize(),
+      contentType: 'application/x-www-form-urlencoded',
       success: function (data) {
         $('#comment-form-submit').addClass('d-none');
         $('#comment-form-submitted').removeClass('d-none');
@@ -37,3 +41,4 @@
     }
   }
 })(jQuery);
+
