@@ -199,7 +199,7 @@ date_format: "%-d %B, %Y"
 # for me, this line reads:
 # https://staticman-travisdownsio.herokuapp.com/v2/entry/travisdowns/travisdowns.github.io/master/comments
 # my staticman
-staticman_url: https://csdiary-staticman.herokuapp.com/v3/entry/github/HohShenYien/HohShenYien.github.io/master/comments
+staticman_url: https://csdiary-staticman.herokuapp.com/v2/entry/HohShenYien/HohShenYien.github.io/master/comments
 
 # reCaptcha stuffs
 # reCaptcha:
