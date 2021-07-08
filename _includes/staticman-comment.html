@@ -32,7 +32,7 @@
       cancel.style.display = '';                        //make the cancel link visible
 
       cancel.onclick = function() {
-        var t       = addComment,
+        var t       = replying,
         temp    = t.I( 'sm-temp-form-div' ),            //temp is the original bookmark
         respond = t.I( t.respondId );                   //respond is the comment form
 
@@ -109,7 +109,7 @@
     </p>
     <div itemprop="text">{{ include.message | markdownify }}</div>
   </div>
-  <div class="comment__meta" style="margin-top: -15px;">
+  <div class="comment__meta" style="margin-top: -15px; margin-bottom: 10px;">
     <a rel="nofollow" class="comment__reply-link link-primary" onclick="replying.moveForm('{{ comment_id }}', 'respond', '{{ page.slug }}', '{{ include.uid }}')">↪&#xFE0E; Reply to {{ include.name }}</a>
   </div>
   {% assign has_reply = false %}
