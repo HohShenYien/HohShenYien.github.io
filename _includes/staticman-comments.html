@@ -13,11 +13,10 @@
           {% assign url = comment[1].url %}
           {% assign date = comment[1].date %}
           {% assign message = comment[1].message %}
-          {% assign index = forloop.index %}
           {% assign uid = comment[1]._id %}
           {%if comment[1].replying_to_uid == "" %}
             {% include staticman-comment.html index=forloop.index email=email name=name url=url date=date message=message index=index uid=uid %}
-            {% increment index %}
+            {% capture index %}{% increment index %}{% endcapture %}
           {%endif %}
         {% endfor %}
       {% endif %}
@@ -84,6 +83,9 @@
     if (typeof jQuery == 'undefined') {
       document.write('<script src="https://code.jquery.com/jquery-3.5.1.min.js"></scr' + 'ipt>');
     }
+    // resetting input fields
+    $('.form-group :input').val('');
+    $('.form-group :textarea').val('');
   </script>
   <script src="{{ '/assets/js/staticman.js' | relative_url }}"></script>
 </div>
