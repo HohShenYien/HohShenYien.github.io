@@ -14,8 +14,6 @@ layout: blank
     var endpoint = '{{ sm.endpoint }}';
     var repository = '{{ sm.repository }}';
     var branch = '{{ sm.branch }}';
-    console.log(endpoint + repository + '/' + branch + '/comments');
-
     $.ajax({
       type: $(this).attr('method'),
       url: endpoint + repository + '/' + branch + '/comments',
