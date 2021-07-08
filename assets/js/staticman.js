@@ -1,5 +1,5 @@
 ---
-layout: blank
+layout: null
 ---
 
 (function ($) {
@@ -7,7 +7,6 @@ layout: blank
 
   $('#new_comment').submit(function () {
     var form = this;
-    console.log($(this).serialize());
 
     $(form).addClass('disabled');
 
@@ -15,12 +14,13 @@ layout: blank
     var endpoint = '{{ sm.endpoint }}';
     var repository = '{{ sm.repository }}';
     var branch = '{{ sm.branch }}';
+    var formData = JSON.stringify($("this").serializeArray());
     $.ajax({
       type: $(this).attr('method'),
       url: endpoint + repository + '/' + branch + '/comments',
-      data: $(this).serialize(),
       crossDomain: true,
-      contentType: 'application/x-www-form-urlencoded',
+      dataType: 'jsonp',
+      data: formData,
       success: function (data) {
         $('#comment-form-submit').addClass('d-none');
         $('#comment-form-submitted').removeClass('d-none');
