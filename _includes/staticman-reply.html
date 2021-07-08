@@ -12,6 +12,9 @@
     </div>
     <div class="comment__content-wrapper">
       <h4 class="comment__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+        {% if include.name == site.author.name %} 
+          <span class="badge badge-primary">Author</span>
+        {% endif %}
         {% unless include.url == '' %}
           <span itemprop="name"><a rel="external nofollow" itemprop="url" href="{{ include.url }}">{{ include.name }}</a></span>
         {% else %}

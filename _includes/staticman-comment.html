@@ -86,6 +86,16 @@
     }
   }
 </script>
+<style>
+  .comment__reply-link {
+    color: dimgray;
+    font-size: 0.9em;
+    cursor: pointer;
+  }
+  .comment__reply-link:hover {
+    color: black;
+  }
+</style>
 {% assign comment_id = include.uid | prepend: 'comment-' %}
 <article id="{{ comment_id }}" class="js-comment comment" itemprop="comment" itemscope itemtype="https://schema.org/Comment">
   <div class="comment__avatar-wrapper">
