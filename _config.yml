@@ -172,13 +172,13 @@ footer-link-col: "#404040"
 # https://github.com/eduardoboucas/staticman/ and https://staticman.net/ for further 
 # instructions. For any support with staticman please direct questions to staticman and 
 # not to BeautifulJekyll.
-#staticman:
-#  repository : # GitHub username/repository eg. "daattali/beautiful-jekyll"
-#  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-#  endpoint   : # URL of your deployment, with a trailing slash eg. "https://<your-api>/v3/entry/github/"
-#  reCaptcha:   # (optional, set these parameters in `staticman.yml` as well) 
-#    siteKey  : # You need to apply for a site key on Google
-#    secret   : # Encrypt your password by going to https://<your-own-api>/v3/encrypt/<your-site-secret>
+staticman:
+  repository : HohShenYien/HohShenYien.github.io
+  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
+  endpoint   : https://csdiary-staticman.herokuapp.com/v3/entry/github/
+  reCaptcha:  
+    siteKey  : 6LcVLIEbAAAAAGbMycRlg3Ei5viL5h4uXCaCpQW1
+    secret   : b9MfrwGJFv7lmlwE8J9KGqbWFaf8PeiTNIwqu+0xGDLoSteRR4aVv/iPPjMyIuzHdE2heIcCbnvG2B1oulUfcU+uM8ziWO5sLQm1ljjos6miRrvLeZk78/NUhjzUC1sgzynVddbDcqG4C9d6fYmG8zHYdX61k3WwyCGOTCt3GyU=
 
 # --- Misc --- #
 
@@ -199,7 +199,7 @@ date_format: "%-d %B, %Y"
 # for me, this line reads:
 # https://staticman-travisdownsio.herokuapp.com/v2/entry/travisdowns/travisdowns.github.io/master/comments
 # my staticman
-staticman_url: https://csdiary-staticman.herokuapp.com/v3/entry/github/HohShenYien/HohShenYien.github.io/master/comments
+# staticman_url: https://csdiary-staticman.herokuapp.com/v3/entry/github/HohShenYien/HohShenYien.github.io/master/comments
 
 # reCaptcha stuffs
 reCaptcha:
