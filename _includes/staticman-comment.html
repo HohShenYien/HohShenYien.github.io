@@ -88,12 +88,12 @@
 </script>
 <style>
   .comment__reply-link {
-    color: dimgray;
+    color: silver !important;
     font-size: 0.9em;
     cursor: pointer;
   }
   .comment__reply-link:hover {
-    color: black;
+    color: dimgray !important;
   }
 </style>
 {% assign comment_id = include.uid | prepend: 'comment-' %}
@@ -108,7 +108,10 @@
       {% else %}
         <span itemprop="name">{{ include.name }}</span>
       {% endunless %}
-      <span style="position:absolute; right: 5px; font-weight: 300; font-size: 1.5em;" class="figure-caption"># {{include.index}}</span>
+      {% if include.name == site.author.name %} 
+          <span class="badge badge-primary">Author</span>
+      {% endif %}
+      <span style="position:absolute; right: 20px; font-weight: 300; font-size: 1.5em;" class="figure-caption"># {{include.index}}</span>
     </h4>
     <p class="comment__date">
       {% if include.date %}
