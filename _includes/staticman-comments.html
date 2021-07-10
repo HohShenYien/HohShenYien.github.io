@@ -15,7 +15,7 @@
 <div class="staticman-comments">
   <div class="page__comments">
     <!-- Start static comments -->
-    {% capture index %}{% increment index %}{% endcapture %}
+    {% assign index = 0 %}
     <div class="js-comments">
       {% if site.data.comments[page.slug] %}
         {% assign comments = site.data.comments[page.slug] | sort %}
@@ -27,21 +27,20 @@
           {% assign message = comment[1].message %}
           {% assign uid = comment[1]._id %}
           {%if comment[1].replying_to_uid == "" %}
+            {% assign index = index | plus:1 %}
             {% include staticman-comment.html email=email name=name url=url date=date message=message index=index uid=uid %}
-            {% capture index %}{% increment index %}{% endcapture %}
           {%endif %}
         {% endfor %}
       {% endif %}
     </div>
-    <!-- End static comments -->
-    {% if index == '1' %}
+    <!-- End static comments -->    
+    {% if index == 0 %}
     <div class="d-flex flex-column justify-content-center">
       <i class="far fa-comments fa-4x mx-auto grey"></i>
       <span class="text-center grey">No comment yet.</span>
       <span class="text-center grey">Be the first to share what you think!</span>
       <hr>
     </div>
-      
     {% endif %}
     <!-- Start new comment form -->
     <div class="page__comments-form" id="respond">
