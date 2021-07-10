@@ -2,6 +2,7 @@
 layout: post
 title: My Programming journey
 subtitle: How I started programming
+share-description: How I started programming?
 cover-img: assets/img/posts/my-programming-journey/programming.jpg
 tags: [life,programming]
 ---

@@ -108,9 +108,9 @@
   clear: both;
 }
 .staticman-comments .page__comments-title {
-  margin-top: 2rem;
+  margin-top: 0;
   margin-bottom: 10px;
-  padding-top: 2rem;
+  padding-top: 0;
 }
 .staticman-comments .page__comments-form {
   -webkit-transition: all 0.2s ease-in-out;

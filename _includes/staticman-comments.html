@@ -2,6 +2,12 @@
   #cancel-comment-reply-link:hover {
     text-decoration: none;
   }
+  .page__comments-form {
+    border-top: 0px !important;
+  }
+  .grey {
+    color: darkgray;
+  }
 </style>
 
 {% if site.staticman.repository and site.staticman.branch %}
@@ -9,11 +15,10 @@
 <div class="staticman-comments">
   <div class="page__comments">
     <!-- Start static comments -->
+    {% capture index %}{% increment index %}{% endcapture %}
     <div class="js-comments">
       {% if site.data.comments[page.slug] %}
         {% assign comments = site.data.comments[page.slug] | sort %}
-        {% capture index %}{% increment index %}{% endcapture %}
-        {% capture index %}{% increment index %}{% endcapture %}
         {% for comment in comments %}
           {% assign email = comment[1].email %}
           {% assign name = comment[1].name %}
@@ -22,16 +27,25 @@
           {% assign message = comment[1].message %}
           {% assign uid = comment[1]._id %}
           {%if comment[1].replying_to_uid == "" %}
-            {% include staticman-comment.html index=forloop.index email=email name=name url=url date=date message=message index=index uid=uid %}
+            {% include staticman-comment.html email=email name=name url=url date=date message=message index=index uid=uid %}
             {% capture index %}{% increment index %}{% endcapture %}
           {%endif %}
         {% endfor %}
       {% endif %}
     </div>
     <!-- End static comments -->
+    {% if index == '1' %}
+    <div class="d-flex flex-column justify-content-center">
+      <i class="far fa-comments fa-4x mx-auto grey"></i>
+      <span class="text-center grey">No comment yet.</span>
+      <span class="text-center grey">Be the first to share what you think!</span>
+      <hr>
+    </div>
+      
+    {% endif %}
     <!-- Start new comment form -->
     <div class="page__comments-form" id="respond">
-      <h4 class="page__comments-title">{{ site.data.ui-text[site.locale].comments_label | default: "Leave a Comment" }} <small><a rel="nofollow" id="cancel-comment-reply-link" href="{{ page.url | absolute_url }}#respond" style="display:none;">(cancel reply)</a></small></h4>
+      <h4 class="page__comments-title" ><span id="comment-title">{{ site.data.ui-text[site.locale].comments_label | default: "Leave a Comment" }}</span> <small><a rel="nofollow" id="cancel-comment-reply-link" href="{{ page.url | absolute_url }}#respond" style="display:none;">(cancel reply)</a></small></h4>
       <p class="small">{{ site.data.ui-text[site.locale].comment_form_info | default: "Your email address will not be published. Required fields are marked" }} <span class="required">*</span></p>
       <form id="new_comment" class="page__comments-form js-form form" method="post" action="{{ site.staticman_url }}">
         <div class="form-group">
