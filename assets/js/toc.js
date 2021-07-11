@@ -1,63 +1,62 @@
-var getSiblings = function (elem) {
-  // Setup siblings array and get the first sibling
-  var siblings = [];
-  var sibling = elem.parentNode.firstChild;
-
-  // Loop through each sibling and push to the array
-  while (sibling) {
-    if (sibling.nodeType === 1 && sibling !== elem) {
-      siblings.push(sibling);
-    }
-    sibling = sibling.nextSibling;
-  }
-
-  return siblings;
-};
-
-// Get ToC div
-let toc = document.getElementById("ToC"); //Add a header
-let headers = document.getElementsByTagName("h2");
-let tocHeader = document.createElement("h3");
-tocHeader.innerText = "Table of contents";
-toc.appendChild(tocHeader); // Get the h2 tags — ToC entries
-let tocList = document.createElement("ul");
-// For each h2
-for (i = 0; i < headers.length; i++) {
-  // Create an id
-  let the_name = "h" + i;
-  headers[i].id = the_name;
-
+function prepareToC() {
+  // Get ToC div
+  let toc = document.getElementById("ToC"); //Add a header
+  var elems = document.body.getElementsByTagName("*");
+  let tocHeader = document.createElement("h3");
+  tocHeader.innerText = "Table of contents";
+  toc.appendChild(tocHeader); // Get the h2 tags — ToC entries
+  let tocList = document.createElement("ul");
+  let ind = 0, subInd = 1;
+  let the_name = "h" + ind;
   // a list item for the entry
   let tocListItem = document.createElement("li");
-
   // a link for the h2
   let tocEntry = document.createElement("a");
-  let siblings = getSiblings(headers[i]);
   // sublist for h2's children
   let sublist = document.createElement("ul");
-  let ind = 1;
-  for (let sibling of siblings) {
-    for (let div of sibling.children) {
-        for (let child of div.children) {
-          if (child.tagName == "H3") {
-            child.id = "h" + i + "-" + ind;
-            let sublistItem = document.createElement("li");
-            let sublistEntry = document.createElement("a");
-            sublistEntry.setAttribute("href", "#" + child.id);
-            sublistEntry.innerText = child.innerText;
-            ind++;
-            sublistItem.appendChild(sublistEntry);
-            sublist.appendChild(sublistItem);
-          }
-        }
+  let subListItem = null;
+  let subListEntry = null;
+  for (let elem of elems) {
+    if (elem.tagName == "H2") {
+      ind++;
+      if (subInd != 1) {
+        tocListItem.appendChild(sublist);
+        subInd = 1;
+      }
+      if (ind != 1) {
+        tocList.appendChild(tocListItem);
+      }
+      tocListItem = document.createElement("li");
+      tocEntry = document.createElement("a");
+      sublist = document.createElement("ul")
+      the_name = "h" + ind;
+      elem.id = the_name
+      tocEntry.setAttribute("href", "#" + the_name);
+      tocEntry.innerText = elem.innerText;
+      tocListItem.appendChild(tocEntry);
+    } else if (elem.tagName == "H3") {
+      if (elem.classList.contains("page__comments-title")) {
+        break;  
+      }
+      subListItem = document.createElement("li");
+      subListEntry = document.createElement("a");
+
+      the_name = "h" + ind + "-" + subInd;
+      elem.id = the_name;
+      subListEntry.setAttribute("href", "#" + the_name);
+      subListEntry.innerText = elem.innerText;
+      subListItem.appendChild(subListEntry);
+      sublist.appendChild(subListItem);
+      subInd++;
     }
   }
-  tocEntry.setAttribute("href", "#" + the_name);
-  tocEntry.innerText = headers[i].innerText;
-  tocListItem.appendChild(tocEntry);
-  if (ind != 1) {
+  if (subInd != 1) {
     tocListItem.appendChild(sublist);
   }
   tocList.appendChild(tocListItem);
+  toc.appendChild(tocList);
 }
-toc.appendChild(tocList);
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  prepareToC();
+});

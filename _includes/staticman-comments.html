@@ -104,8 +104,12 @@
       document.write('<script src="https://code.jquery.com/jquery-3.5.1.min.js"></scr' + 'ipt>');
     }
     // resetting input fields
-    $('.form-group :input').val('');
-    $('.form-group :textarea').val('');
+    for (let inp of document.getElementsByTagName("INPUT")) {
+      inp.value = ""
+    }
+    for (let inp of document.getElementsByTagName("TEXTAREA")) {
+      inp.value = ""
+    }
   </script>
   <script src="{{ '/assets/js/staticman.js' | relative_url }}"></script>
 </div>

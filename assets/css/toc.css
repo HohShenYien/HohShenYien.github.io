@@ -9,4 +9,14 @@
     padding-left: 40px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.page-dark-mode #ToC {
+    color: silver;
+    background-color: #4e4e4e;
+}
+
+#ToC ul{
+    list-style-type: disc;
 }

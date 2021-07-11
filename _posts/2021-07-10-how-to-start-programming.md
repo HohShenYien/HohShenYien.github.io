@@ -5,7 +5,7 @@ subtitle: My two cents on the best way to start programming
 share-description: My two cents on the best way to start programming
 cover-img: assets/img/posts/how-to-start-programming/typing.jpg
 tags: [programming, tutorial]
-toc: true
+before-content: toc.html
 ---
 
 ## Which programming language to choose?
@@ -16,7 +16,7 @@ This is often the first problem that stumbles most beginners as there are hundre
 if not thousands of programming languages out there. As for that, I propose two
 ways that you can pick a programming language:
 
-#### 1. Based on what your goal is
+### 1. Based on what your goal is
 
 What do you want to do with programming? Making your own android app? A website?
 Building a game? Different programming languages usually are better in some
@@ -58,7 +58,7 @@ Interested to run a personal app in your Android phone? (Sorry, I have no experi
 Then perhaps you can look for Java or Kotlin. Personally, I think Java would be better
 for beginner because there are a lot of resources online (see above on computer application part).
 
-#### 2. My recommendation
+### 2. My recommendation
 
 Okay, cool, what if I have no idea on what I want to do with programming? Here are my
 recommendations based on my past experience.
