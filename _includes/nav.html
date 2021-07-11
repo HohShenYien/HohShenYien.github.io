@@ -40,6 +40,10 @@
       {%- endif -%}
     </ul>
   </div>
+  <div id="change-skin" title="Toggle Dark Mode" onclick="skin_switch()">
+    <span class="skin-btn dark-mode">🌙</span>
+    <span class="skin-btn light-mode">☀️</span>
+  </div>
 
   {% if site.navbar-extra %}
     {% for file in site.navbar-extra %}
