@@ -2,7 +2,7 @@
 layout: post
 title: Three Stages of Programming
 subtitle: and how to move on to the next stage
-share-description: My way of learning programming
+share-description: and how to move on to the next stage
 cover-img: assets/img/posts/how-to-learn-programming/programming.png
 tags: [tutorial,programming]
 before-content: toc.html
@@ -45,6 +45,7 @@ print("Hello world")
 
 int main(void) {
     std::cout << "Hello world" << std::endl;
+    return 0;
 }
 ```
 
