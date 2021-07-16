@@ -1,7 +1,7 @@
 ---
 layout: post
-title: How to Improve in Programming?
-subtitle: My way of learning programming
+title: Three Stages of Programming
+subtitle: and how to move on to the next stage
 share-description: My way of learning programming
 cover-img: assets/img/posts/how-to-learn-programming/programming.png
 tags: [tutorial,programming]
