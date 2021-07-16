@@ -228,6 +228,7 @@ defaults:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
+      scroll-up: true # add a scroll up button on bottom right
   -
     scope:
       path: "" # any file that's not a post will be a "page" layout by default

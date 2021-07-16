@@ -19,6 +19,9 @@ common-ext-js:
   {% include head.html %}
 
   <body>
+    {% if page.scroll-up %}
+      {% include scroll_to_top.html %}
+    {% endif %}
 
     <div role="main" class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %} main-content">
       {% if page.before-content %}

@@ -1,0 +1,82 @@
+<style>
+    #btn-back-to-top {
+        position: fixed;
+        display: block;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        z-index: 100;
+
+        /* hide with opacity */
+        opacity: 1;
+
+        /* also add a translate effect */
+        transform: translateY(100px);
+
+        /* and a transition */
+        transition: all .5s ease;
+
+        background-color: #1E90FF;
+
+        border: 0;
+
+        box-shadow: 1px 1px 1px #888888;
+    }
+
+    .showBtn {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    #btn-back-to-top:hover {
+        background-color: #4682B4;
+    }
+
+    .myArrow {
+        color: white;
+    }
+
+    .page-dark-mode #btn-back-to-top{
+        background-color: #444;
+        box-shadow: 1px 1px 1px #666;
+    }
+
+    .page-dark-mode #btn-back-to-top:hover{
+        background-color: #777;
+    }
+</style>
+
+<button type="button" class="my-btn" id="btn-back-to-top">
+    <i class="fas fa-arrow-up myArrow"></i>
+</button>
+
+<script>
+    let mybutton = document.getElementById("btn-back-to-top");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+        ) {
+            mybutton.classList.add("showBtn")
+        } else {
+            mybutton.classList.remove("showBtn")
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    mybutton.addEventListener("click", backToTop);
+
+    function backToTop() {
+        document.documentElement.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+</script>

@@ -6,6 +6,10 @@ layout: page
 
 {% assign posts = paginator.posts | default: site.posts %}
 
+{% if page.scroll-up %}
+  {% include scroll_to_top.html %}
+{% endif %}
+
 <div class="posts-list">
   {% for post in posts %}
   <article class="post-preview">
