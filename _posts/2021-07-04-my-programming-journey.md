@@ -1,6 +1,6 @@
 ---
 layout: post
-title: My Programming journey
+title: My Programming Journey
 subtitle: How I started programming
 share-description: How I started programming?
 cover-img: assets/img/posts/my-programming-journey/programming.jpg
