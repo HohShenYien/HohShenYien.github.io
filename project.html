@@ -34,6 +34,33 @@ before-content: toc.html
         /* For mobile phones: */
         .project-description {
             padding-left: 20px;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .project-img {
+            flex: 0 0 100%;
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            text-align: center;
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        .project-description {
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+            
+        }
+        .project-img {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+        }
+        .project:nth-child(even) {
+            flex-direction: row-reverse;
         }
     }
 </style>
@@ -41,8 +68,8 @@ before-content: toc.html
     <h2 class="title">Android</h2>
     <div class="row project">
         <img src="https://raw.githubusercontent.com/HohShenYien/Pokedex/master/preview_image/Screenshot_20200622-183303.jpg"
-            alt="Pokedex" class="project-img col-4">
-        <div class="project-description col-8">
+            alt="Pokedex" class="project-img">
+        <div class="project-description">
             <h3 class="project-title">
                 <a href="https://github.com/HohShenYien/Pokedex">Pokedex</a>
             </h3>
@@ -54,7 +81,9 @@ before-content: toc.html
         </div>
     </div>
     <div class="row project">
-        <div class="project-description col-8">
+        <img src="https://raw.githubusercontent.com/HohShenYien/Pomodoro_Focus/master/preview/Screenshot_20200705-231823.jpg"
+            alt="Pomodoro Focus" class="project-img">
+        <div class="project-description">
             <h3 class="project-title">
                 <a href="https://github.com/HohShenYien/Pomodoro_Focus">Pomodoro Focus</a>
             </h3>
@@ -65,16 +94,14 @@ before-content: toc.html
                 adjustable. It also tracks user's usage so that it can provide usage graph.
             </p>
         </div>
-        <img src="https://raw.githubusercontent.com/HohShenYien/Pomodoro_Focus/master/preview/Screenshot_20200705-231823.jpg"
-            alt="Pomodoro Focus" class="project-img col-4">
     </div>
 </div>
 <div class="container-fluid">
     <h2 class="title">Desktop application</h2>
     <div class="row project">
         <img src="https://raw.githubusercontent.com/HohShenYien/Pomodoro-Timer/main/Preview/Preview%202.jpg"
-            alt="Pomodoro Timer" class="project-img col-4">
-        <div class="project-description col-8">
+            alt="Pomodoro Timer" class="project-img">
+        <div class="project-description">
             <h3 class="project-title">
                 <a href="https://github.com/HohShenYien/Pomodoro-Timer">Pomodoro Timer</a>
             </h3>
@@ -90,7 +117,8 @@ before-content: toc.html
 <div class="container-fluid">
     <h2 class="title">Websites</h2>
     <div class="row project">
-        <div class="project-description col-8">
+        <img src="../assets/img/projects/dgtin.png" alt="Hp-Sys" class="project-img">
+        <div class="project-description">
             <h3 class="project-title">
                 <a
                     href="https://hohshenyien.github.io/university_assignments/year%201/sem%201/Digital%20Innovation/solution/index.html">
@@ -102,11 +130,10 @@ before-content: toc.html
                 of each page fully.
             </p>
         </div>
-        <img src="../assets/img/projects/dgtin.png" alt="Hp-Sys" class="project-img col-4">
     </div>
     <div class="row project">
-        <img src="../assets/img/projects/saad.png" alt="One Pacific Health Club" class="project-img col-4">
-        <div class="project-description col-8">
+        <img src="../assets/img/projects/saad.png" alt="One Pacific Health Club" class="project-img">
+        <div class="project-description">
             <h3 class="project-title">
                 <a
                     href="https://hohshenyien.github.io/university_assignments/year%201/sem%202/SAAD/solution/index.html">One
@@ -120,7 +147,9 @@ before-content: toc.html
         </div>
     </div>
     <div class="row project">
-        <div class="project-description col-8">
+        <img src="../assets/img/projects/csdiary.jpg" alt="CS Diary" class="project-img">
+        <div class="project-description">
+            
             <h3 class="project-title">
                 <a
                     href="https://csdiary.me">CS Diary</a>
@@ -130,6 +159,5 @@ before-content: toc.html
                 
             </p>
         </div>
-        <img src="../assets/img/projects/csdiary.jpg" alt="CS Diary" class="project-img col-4">
     </div>
 </div>
