@@ -8,7 +8,7 @@ tags: [hackathon,coding,university]
 before-content: toc.html
 ---
 
-Somewhere around the end of July I saw this interesting one-month
+Somewhere around the end of July, I saw this interesting one-month
 [hackathon](https://hackathon.data.gov.my/) 
 organized by Ministry of Education of Malaysia. As I would be having a 1.5 month holiday very soon 
 (plus the prizes looked very attractive haha), I decided to give it a try and invited 3 of my other 
@@ -25,7 +25,7 @@ application, be it IOS or Android application.
 Like a usual long hackathon, the first phase was idea submission & design phase. After some 
 discussions, one of us came out with a decent idea. It was about developing an app that allows
 users to propose their business ideas and look for investments from other users. We came out of this
-in response to increasing employment in Malaysia due to Covid-19.
+idea in response to increasing employment in Malaysia due to Covid-19.
 
 {% include image.html url="../assets/img/posts/first-hackathon/design.jpg" description="Our mobile wireframe" %}
 
@@ -50,7 +50,7 @@ Just like a normal group work, we used [github](https://www.github.com) to colla
 was really great, but execution? Slightly worse. Due to our inexperience (I had only made some 
 simple apps, nothing complex), it took us quite long to preogress through like the starting phase.
 
-It took about like 2 weeks to get used to the development for my team, to finish one of the
+It took us about like 2 weeks or so to get used to the development for my team, to finish one of the
 very first things like login, registration and profile page. Then, we moved on with a few more things
 like hosting the API codes on [pythonanywhere](https://www.pythonanywhere.com/). (I chose
 pythonanywhere instead of heroku because pythonanywhere gives an online storage of 512 MB which
