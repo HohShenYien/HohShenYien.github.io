@@ -17,6 +17,7 @@ navbar-links:
   About Me: "aboutme"
   My Projects: "project"
   Index: "tags"
+  Analysis: "analysis"
 
 # --- Logo --- #
 
@@ -235,7 +236,20 @@ defaults:
       path: "" # any file that's not a post will be a "page" layout by default
     values:
       layout: "page"
-
+  - 
+    scope:
+      path: "_analysis_projects"
+    values:
+      layout: "post"
+      comments: true  # add comments to all blog posts
+      social-share: true # add social media sharing buttons to all blog posts
+      scroll-up: true # add a scroll up button on bottom right
+      css: [/assets/css/rstyle.css]
+      js: [/assets/js/rstyle.js]
+# Collections
+collections:
+  analysis_projects:
+    output: true
 # Exclude these files from production site
 exclude:
   - CHANGELOG.md
